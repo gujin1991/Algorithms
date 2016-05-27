@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.Random;
 
 public class loadBalance {
@@ -43,6 +44,8 @@ public class loadBalance {
 				return mid;
 			}
 		}
+		
+		//Collections.sort(list);
 		return right;
 	}
 

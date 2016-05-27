@@ -1,10 +1,13 @@
+import java.util.Arrays;
 
 public class BinarySearchFirstLast {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] arr = {1, 2, 3, 3,3,4,5,6};
+		int[] arr = {1, 2, 3, 3,3,5,7};
 		System.out.println(Search(arr, 1, true));
+		System.out.println(Arrays.binarySearch(arr, 6));
+	
 	}
 	
 	static int Search(int[]arr, int target, boolean first) {
