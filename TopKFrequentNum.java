@@ -23,6 +23,7 @@ public class TopKFrequentNum {
             int fre = map.get(key);
             if(bucket[fre] == null) {
                 bucket[fre] = new ArrayList<Integer>();
+                
             }
             bucket[fre].add(key);
         }
