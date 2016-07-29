@@ -1,3 +1,4 @@
+package Elementum;
 
 public class WildcardMatching {
 
@@ -6,37 +7,40 @@ public class WildcardMatching {
 
 	}
 	
-	
 	public boolean isMatch(String s, String p) {
-        int ssize = s.length();
-        int psize = p.length();
+        int slen = s.length();
+        int plen = p.length();
+        int pstart = -1;
+        int sstart = -1;
         int sidx = 0;
         int pidx = 0;
-        int mark = -1;
-        int start = -1;
         
-        while(sidx < ssize) {
-            
-            if(pidx < psize && ((p.charAt(pidx) == '?') || s.charAt(sidx) == p.charAt(pidx))) {
+        while(sidx < slen) {
+            if(pidx < plen && (p.charAt(pidx) == '?' || p.charAt(pidx) == s.charAt(sidx))) {
                 pidx++;
                 sidx++;
-                //System.out.println(pidx + " " + sidx);
-            } else if(pidx < psize && p.charAt(pidx) == '*') {
-                start = pidx;
+            } else if(pidx < plen && p.charAt(pidx) == '*') {
+                pstart = pidx;
                 pidx++;
-                mark = sidx;
-            } else if(start != -1) {
-                pidx = start + 1;
-                sidx = ++mark;
+                sstart = sidx;
+                //sidx++;
+            } else if(pstart != -1) {
+                pidx = pstart + 1;
+                sidx = ++sstart;    
             } else {
                 return false;
             }
+            //System.out.println(pidx);
         }
         
-        while(pidx < psize && p.charAt(pidx) == '*') {
+        System.out.println(pidx);
+        while(pidx < plen && p.charAt(pidx) == '*') {
             pidx++;
         }
         
-        return pidx == psize;
+        return pidx == plen;
+        
+        
     }
+
 }
